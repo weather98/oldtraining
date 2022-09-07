@@ -93,10 +93,34 @@
         grid-template-columns: 200px 1fr;
         border-left: 1px solid #bbbbbb;
       }
-      #article{
-        display:inline;
-      }
 
+      #article {
+        display: inline;
+      }
+     /*
+        화면 넓이에 따라 속성조절! 
+        반응형 웹! 미디어쿼리
+        */
+      @media (max-width:500px) { 
+   
+        #grid {
+          display: block;
+        }
+
+        #grid ol {
+          border-right: none;
+          width: 150px;
+          margin: 0;
+          padding-top: 20px;
+          padding-left: 33px;
+        }
+
+        h1 {
+          border-bottom: none;
+          margin: 0;
+        }
+
+      }
     </style>
     <!-- /css -->
 
@@ -107,9 +131,7 @@
     <h1>
       <a href="index.html">
         <div id="center">
-          <img
-            src="home.jpg"
-            width="600px">
+          <img src="home.jpg" width="600px">
         </div>
       </a>
     </h1>
@@ -133,96 +155,97 @@
       </div>
       <div>
         <div id="article"><img src="https://www.advancedwebranking.com/seo/wp-content/uploads/2021/11/elements.png">
-        <!--<table 은 3개의 가족태그가 있다 tr td th align border bgcolor width heigh>-->
+          <!--<table 은 3개의 가족태그가 있다 tr td th align border bgcolor width heigh>-->
           <table bgcolor="D9E5FF" border="3" bordercolor="A6A6A6" width="300px">
-        <tr align="center" height="50">
-          <th><span style="font-size:24px;">태그</span></th>
-          <th><span style="font-size:24px;">사용빈도</span></th>
-        </tr>
-        <tr align="center">
-          <td>head</td>
-          <td width=150>100%</td>
-        </tr>
-        <tr align="center">
-          <td>html</td>
-          <td>100%</td>
-        </tr>
-        <tr align="center">
-          <td>body</td>
-          <td>99.1%</td>
-        </tr>
-        <tr align="center">
-          <td>title</td>
-          <td>97.9%</td>
-        </tr>
-        <tr align="center">
-          <td>meta</td>
-          <td>96.5</td>
-        </tr>
-        <tr align="center">
-          <td>div</td>
-          <td>95.1%</td>
-        </tr>
-        <tr align="center">
-          <td>a</td>
-          <td>93.7%</td>
-        </tr>
-        <tr align="center">
-          <td>script</td>
-          <td>93.5%</td>
-        </tr>
-        <tr align="center">
-          <td>link</td>
-          <td>92.7%</td>
-        </tr>
-      </table>
-      
-      <h3>
-      <a href="https://www.advancedwebranking.com/seo/html-study/" target="_blank" title="advanced web ranking!">Tag
-          ranking</a>
-      </h3>
-    </div>
+            <tr align="center" height="50">
+              <th><span style="font-size:24px;">태그</span></th>
+              <th><span style="font-size:24px;">사용빈도</span></th>
+            </tr>
+            <tr align="center">
+              <td>head</td>
+              <td width=150>100%</td>
+            </tr>
+            <tr align="center">
+              <td>html</td>
+              <td>100%</td>
+            </tr>
+            <tr align="center">
+              <td>body</td>
+              <td>99.1%</td>
+            </tr>
+            <tr align="center">
+              <td>title</td>
+              <td>97.9%</td>
+            </tr>
+            <tr align="center">
+              <td>meta</td>
+              <td>96.5</td>
+            </tr>
+            <tr align="center">
+              <td>div</td>
+              <td>95.1%</td>
+            </tr>
+            <tr align="center">
+              <td>a</td>
+              <td>93.7%</td>
+            </tr>
+            <tr align="center">
+              <td>script</td>
+              <td>93.5%</td>
+            </tr>
+            <tr align="center">
+              <td>link</td>
+              <td>92.7%</td>
+            </tr>
+          </table>
 
-    <div id="disqus_thread"></div>
-    <script>
-      /**
-      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-      /*
-      var disqus_config = function () {
-      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-      };
-      */
-      (function () { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://web-test1-5.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-        Disqus.</a></noscript>
-    </p>
-    <p>
-      <script id="dsq-count-scr" src="//web-test1-5.disqus.com/count.js" async></script>
-    </p>
-    <p>
-      <!--Start of Tawk.to Script-->
-      <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-          var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-          s1.async = true;
-          s1.src = 'https://embed.tawk.to/63172a3237898912e9677755/1gc97plfu';
-          s1.charset = 'UTF-8';
-          s1.setAttribute('crossorigin', '*');
-          s0.parentNode.insertBefore(s1, s0);
-        })();
-      </script>
-      <!--End of Tawk.to Script-->
-    </p>
-</div>
+          <h3>
+            <a href="https://www.advancedwebranking.com/seo/html-study/" target="_blank"
+              title="advanced web ranking!">Tag
+              ranking</a>
+          </h3>
+        </div>
+
+        <div id="disqus_thread"></div>
+        <script>
+          /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+          /*
+          var disqus_config = function () {
+          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          };
+          */
+          (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://web-test1-5.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        </p>
+        <p>
+          <script id="dsq-count-scr" src="//web-test1-5.disqus.com/count.js" async></script>
+        </p>
+        <p>
+          <!--Start of Tawk.to Script-->
+          <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+              var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+              s1.async = true;
+              s1.src = 'https://embed.tawk.to/63172a3237898912e9677755/1gc97plfu';
+              s1.charset = 'UTF-8';
+              s1.setAttribute('crossorigin', '*');
+              s0.parentNode.insertBefore(s1, s0);
+            })();
+          </script>
+          <!--End of Tawk.to Script-->
+        </p>
+      </div>
 
 </body>
 

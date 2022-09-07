@@ -9,13 +9,13 @@
             <!-- Google tag (gtag.js) -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5C8R737B6"></script>
             <script>
-              window.dataLayer = window.dataLayer || [];
-              function gtag() { dataLayer.push(arguments); }
-              gtag('js', new Date());
-      
-              gtag('config', 'G-D5C8R737B6');
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { dataLayer.push(arguments); }
+                gtag('js', new Date());
+
+                gtag('config', 'G-D5C8R737B6');
             </script>
-          </p>
+        </p>
         <!-- css -->
         <style>
             #active {
@@ -67,9 +67,34 @@
             #article {
                 padding-left: 25px;
             }
+
+            /*
+        화면 넓이에 따라 속성조절! 
+        반응형 웹! 미디어쿼리
+        */
+            @media (max-width:500px) {
+
+                #grid {
+                    display: block;
+                }
+
+                #grid ol {
+                    border-right: none;
+                    width: 150px;
+                    margin: 0;
+                    padding-top: 20px;
+                    padding-left: 33px;
+                }
+
+                h1 {
+                    border-bottom: none;
+                    margin: 0;
+                }
+
+            }
         </style>
         <!-- /css -->
-        
+
 </head>
 
 <body>
@@ -94,12 +119,12 @@
             <input type="checkbox">
             <input type="checkbox">
             <input type="checkbox">
-            
-    <!-- 동영상 프레임-->
-    <p>
-        <iframe width="609" height="340" src="https://www.youtube.com/embed/iFA9xyAk8eo" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </p>
+
+            <!-- 동영상 프레임-->
+            <p>
+                <iframe width="609" height="340" src="https://www.youtube.com/embed/iFA9xyAk8eo" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </p>
         </div>
     </div>
