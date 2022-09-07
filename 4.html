@@ -1,10 +1,105 @@
-<input type="checkbox">
-<input type="checkbox">
-<input type="checkbox">
-<//! 동영상 프레임>
-<p> 
-    <iframe width="609" height="340" src="https://www.youtube.com/embed/iFA9xyAk8eo"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-</p>
+<!doctype html>
+<html>
+
+<head>
+    <!본문을 설명하는 정보>
+        <title>WEB1 - youtube</title>
+        <meta charset="utf-8">
+        <p>
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5C8R737B6"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag() { dataLayer.push(arguments); }
+              gtag('js', new Date());
+      
+              gtag('config', 'G-D5C8R737B6');
+            </script>
+          </p>
+        <!-- css -->
+        <style>
+            #active {
+                color: red;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
+
+
+            h1 {
+                border-bottom: 1px solid #bbbbbb;
+                margin: 0;
+            }
+
+            h1 .img {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            #left {
+                text-align: left;
+            }
+
+            #center {
+                text-align: center;
+            }
+
+            #right {
+                text-align: right;
+            }
+
+            #grid {
+                display: grid;
+                grid-template-columns: 200px 1fr;
+            }
+
+            #grid ol {
+                border-right: 1px solid #bbbbbb;
+                width: 150px;
+                margin: 0;
+                padding-top: 20px;
+                padding-left: 33px;
+            }
+
+            #article {
+                padding-left: 25px;
+            }
+        </style>
+        <!-- /css -->
+        
+</head>
+
+<body>
+    <h1>
+        <a href="index.html">
+            <div id="center">
+                <img src="home.jpg" width="600px">
+            </div>
+        </a>
+    </h1>
+    <div id="grid">
+        <ol>
+            <li><a href="1.html">Html</a></li>
+            <li><a href="2.html">CSS</a></li>
+            <li><a href="3.html">Javascript</a></li>
+            <li><a href="4.html">News</a></li>
+            <a href="5.html">Animate Toggle Button</a>
+        </ol>
+
+        <div id="article">
+
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+            
+    <!-- 동영상 프레임-->
+    <p>
+        <iframe width="609" height="340" src="https://www.youtube.com/embed/iFA9xyAk8eo" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </p>
+        </div>
+    </div>
