@@ -29,10 +29,10 @@ h3 {
     font-family: Impact;
 }
 
-table {
+/* manu {
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 #left {
     text-align: left;
@@ -66,12 +66,14 @@ table {
 
 #grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 200px 600px;
     border-left: 1px solid #bbbbbb;
+    justify-content: center;
 }
 
 #article {
     display: inline;
+    
 }
 
 /*
