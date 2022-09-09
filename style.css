@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  h1 {
+    border-bottom: 1px solid #bbbbbb;
+    margin: 0;
+  }
+
+  h1 img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ol {
+    border-right: 1px solid #bbbbbb;
+    width: 150px;
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  h3 {
+    text-align: center;
+    font-family: Impact;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #left {
+    text-align: left;
+  }
+
+  #center {
+    text-align: center;
+  }
+
+  #right {
+    text-align: right;
+  }
+
+  #hello {
+    width: 400px;
+    height: 50px;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #Side_banner {
+    overflow: hidden;
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #grid {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+  }
+
+  #grid2 {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-left: 1px solid #bbbbbb;
+  }
+
+  #article {
+    display: inline;
+  }
+ /*
+    화면 넓이에 따라 속성조절! 
+    반응형 웹! 미디어쿼리
+    */
+  @media (max-width:500px) { 
+
+    #grid, #grid2 {
+      display: block;
+    }
+
+    #grid ol {
+      border-right: none;
+      width: 150px;
+      margin: 0;
+      padding-top: 20px;
+      padding-left: 33px;
+    }
+
+    h1 {
+      border-bottom: none;
+      margin: 0;
+    }
+
+  }
