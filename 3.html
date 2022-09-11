@@ -22,14 +22,33 @@
 
 <body>
   <!본문을 표기>
-    <h1>
-      <a href="index.html">
-        <div id="center">
-          <img src="home.jpg" width="600px">
-        </div>
-      </a>
-    </h1>
+    <div class="head">
+      <header>
+        <hgroup>
+          <h1 class="title" ALIGN="CENTER">
+            <a href="index.html">코길순딩</a>
+          </h1>
 
+          <p class="subtitle" ALIGN="CENTER">
+            <small>coriny webpage</small>
+          </p>
+          <p>
+            <!--if() else() 조건문 + value 값설정, id설정으로 분류 및 지정-->
+            <input id="night_day" type="button" value="night" onclick="
+        if(document.querySelector('#night_day').value === 'night'){
+        document.querySelector('body').style.backgroundColor='#818181';
+        document.querySelector('body').style.color='white';
+        document.querySelector('#night_day').value ='day';
+      } else {
+        document.querySelector('body').style.backgroundColor='white';
+        document.querySelector('body').style.color='black';
+        document.querySelector('#night_day').value = 'night';
+      }
+        ">
+          </p>
+        </hgroup>
+      </header>
+    </div>
     <div id="grid">
       <ol>
         <!--ordered list-->

@@ -7,9 +7,16 @@ a {
     text-decoration: none;
 }
 
-h1 {
-    border-bottom: 1px solid #bbbbbb;
+h1, .subtitle {
     margin: 0;
+    text-align:center;
+}
+
+
+hgroup {
+    border-bottom: 45px solid #818181;
+    margin: 0;
+    text-align: center;
 }
 
 h1 img {
@@ -66,7 +73,7 @@ h3 {
 
 #grid {
     display: grid;
-    grid-template-columns: 200px 600px;
+    grid-template-columns: 200px 700px;
     border-left: 1px solid #bbbbbb;
     justify-content: center;
 }
@@ -76,11 +83,12 @@ h3 {
     
 }
 
+
 /*
     화면 넓이에 따라 속성조절! 
     반응형 웹! 미디어쿼리
     */
-@media (max-width:500px) {
+@media (max-width:700px) {
 
     #grid,
     #grid2 {
@@ -89,10 +97,12 @@ h3 {
 
     #grid ol {
         border-right: none;
-        width: 150px;
+        width: auto;
         margin: 0;
         padding-top: 20px;
         padding-left: 33px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #818181;
     }
 
     h1 {

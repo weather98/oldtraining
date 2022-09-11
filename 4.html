@@ -21,13 +21,19 @@
 </head>
 
 <body>
-    <h1>
-        <a href="index.html">
-            <div id="center">
-                <img src="home.jpg" width="600px">
-            </div>
-        </a>
-    </h1>
+    <div class="head">
+        <header>
+          <hgroup>
+            <h1 class="title" ALIGN="CENTER">
+              <a href="index.html">코길순딩</a>
+            </h1>
+   
+          <p class="subtitle" ALIGN="CENTER">
+            <small>coriny webpage</small>
+          </p>
+        </hgroup>
+        </header>
+      </div>
     <div id="grid">
         <ol>
             <li><a href="1.html">그림판그리기</a></li>
@@ -36,18 +42,16 @@
             <li><a href="4.html">News</a></li>
             <a href="5.html">Animate Toggle Button</a>
         </ol>
-
+  
         <div id="article">
-
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-
             <!-- 동영상 프레임-->
-            <p>
-                <iframe width="609" height="340" src="https://www.youtube.com/embed/iFA9xyAk8eo" frameborder="0"
+            <div class="movie"> <iframe width="640" height="360" gesture="media"
+                    src="https://www.youtube.com/embed/iFA9xyAk8eo?rel=0" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
-            </p>
+                <input style="position:absolute; margin-left:5px; width:24px; opacity:0.5;filter: alpha(opacity=10);" class="split"
+                    type="image" src="pip.jpg" value="split" title="새창으로 열기" onmouseover="this.style.opacity='1'"
+                    onmouseleave="this.style.opacity='0.5'">
+            </div>
         </div>
     </div>
