@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //react에서 제공하는 기본함수
 
 function Header(props) {
   return <header>
@@ -17,7 +17,8 @@ function Nav(props) {
     lis.push(<li key={t.id}>
       <a id={t.id} href={'/read/' + t.id} onClick={event=>{
         event.preventDefault();
-        props.onChangeMode(event.target.id);
+        props.onChangeMode(Number(event.target.id));
+         //문자형으로 나오는것을 Number를 사용해서 숫자로 바꿔줌
       }}>{t.title}</a>
     </li>)
   }
@@ -36,23 +37,38 @@ function Article(props) {
   );
 }
 function App() {
-  const page = useState('WELCOME');
-  const id = useState('null');
+  const [page, setPage] = useState('WELCOME');
+  const [id, setId] = useState(null);
   const topics = [
     { id: 1, title: 'html', body: 'html is ...' },
     { id: 2, title: 'css', body: 'css is ...' },
     { id: 3, title: 'javascript', body: 'javascript is ...' }
   ]
+  let content = null;
+  if(page === 'WELCOME'){
+    content = <Article title='안녕 첫화면 제목' body='첫화면 내용1'></Article>
+  } else if(page === 'READ') {
+    let title, body = null;
+    for(let i=0; i<topics.length; i++){
+      console.log(topics[i].id, id);
+      if(topics[i].id === id){
+          title = topics[i].title;
+          body = topics[i].body;
+      }
+    }
 
+    content = <Article title='안녕 뒷화면 제목' body='첫화면 내용body'></Article>
+  }
   return (
     <div>
       <Header title="WEB" onChangeMode={()=>{
-        alert('header');
+        setPage('WELCOME');
       }}></Header>
-      <Nav topics={topics} onChangeMode={(id)=>{
-        alert(id);
+      <Nav topics={topics} onChangeMode={(_id)=>{
+        setPage('READ');
+        setId(_id);
       }}></Nav>
-      <Article title='title2' body='body2'></Article>
+      {content}
     </div>
   );
 }
