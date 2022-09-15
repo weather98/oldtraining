@@ -25,16 +25,29 @@ function Nav(props) {
   return <nav>
     <ol>
       {lis}
+      
     </ol>
   </nav>
 }
 
 function Article(props) {
   return (<article>
-    <h2>{props.title}</h2>
-    {props.body}
+    <p><h2>{props.title}</h2>
+    {props.body}</p>
   </article>
   );
+}
+function Create() {
+  return <article>
+    <h2>Create</h2>
+  <form onSubmit={event=>{
+    event.preventDefault(); 
+  }}>
+    <p><input type="text" name="title" placeholder="타이틀" /></p>
+    <p><textarea name="body" placeholder='내용'></textarea></p>
+    <p><input type="submit" value='c생성'></input></p>
+  </form>
+  </article>
 }
 function App() {
   const [page, setPage] = useState('WELCOME');
@@ -44,6 +57,8 @@ function App() {
     { id: 2, title: 'css', body: 'css is ...' },
     { id: 3, title: 'javascript', body: 'javascript is ...' }
   ]
+  
+
   let content = null;
   if(page === 'WELCOME'){
     content = <Article title='안녕 첫화면 제목' body='첫화면 내용1'></Article>
@@ -58,6 +73,10 @@ function App() {
     }
 
     content = <Article title='안녕 뒷화면 제목' body='첫화면 내용body'></Article>
+  } else if(page === 'CREATE'){
+    content = <Create onCreate={(title,body)=>{
+      //어떻게 호출해야함?
+    }}></Create>
   }
   return (
     <div>
@@ -69,6 +88,10 @@ function App() {
         setId(_id);
       }}></Nav>
       {content}
+      <a href="/creat" onClick={event=>{
+        event.preventDefault();
+        setPage('CREATE');
+      }}>Creat</a>
     </div>
   );
 }
