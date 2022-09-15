@@ -37,11 +37,14 @@ function Article(props) {
   </article>
   );
 }
-function Create() {
+function Create(props) {
   return <article>
     <h2>Create</h2>
   <form onSubmit={event=>{
-    event.preventDefault(); 
+    event.preventDefault();
+    const title = event.target.title.value;  //여기서 target은 form이고 title값을 지정
+    const body = event.target.body.value;
+    props.onCreate(title,body);
   }}>
     <p><input type="text" name="title" placeholder="타이틀" /></p>
     <p><textarea name="body" placeholder='내용'></textarea></p>
@@ -52,11 +55,12 @@ function Create() {
 function App() {
   const [page, setPage] = useState('WELCOME');
   const [id, setId] = useState(null);
-  const topics = [
+  const [nextId, setNextId] = useState(4); //nextId를 통해서 newTopic의 다음 id값을 결정?
+  const [topics, setTopics] = useState([ // useState()로 감싸서 state상태로 승격
     { id: 1, title: 'html', body: 'html is ...' },
     { id: 2, title: 'css', body: 'css is ...' },
     { id: 3, title: 'javascript', body: 'javascript is ...' }
-  ]
+  ]);
   
 
   let content = null;
@@ -72,10 +76,17 @@ function App() {
       }
     }
 
-    content = <Article title='안녕 뒷화면 제목' body='첫화면 내용body'></Article>
+    content = <Article title={title} body={body}></Article>
   } else if(page === 'CREATE'){
-    content = <Create onCreate={(title,body)=>{
+    content = <Create onCreate={(titlex,bodyx)=>{
       //어떻게 호출해야함?
+      const newTopic = {id:nextId, title:titlex, body:bodyx} 
+      const newTopics = [...topics] //topics에 새로운 원소번호를 추가하기 위해서
+      newTopics.push(newTopic);
+      setTopics(newTopics);
+      setPage('READ'); //생성하고 read페이지로 돌아오기
+      setId(nextId); //생성된 페이지에 다음id지정?
+      setNextId(nextId+1); //생성후 다음 순번 Id 설정 (+1)
     }}></Create>
   }
   return (
