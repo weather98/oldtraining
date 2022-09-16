@@ -1,4 +1,4 @@
-import logo from './logo.svg'; 
+import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react'; //react에서 제공하는 기본함수
 
@@ -63,9 +63,9 @@ function Update(props) {
       const body = event.target.body.value;
       props.onUpdate(title, body);
     }}>
-      <p><input type="text" name="title" placeholder="타이틀" value={title} onChange={(event =>{   //props들어온걸 state로 환생 onChange로 키입력시마다 새로운 value로 변경 렌더링
-        setTitle(event.target.value);       
-      })}/></p>
+      <p><input type="text" name="title" placeholder="타이틀" value={title} onChange={(event => {   //props들어온걸 state로 환생 onChange로 키입력시마다 새로운 value로 변경 렌더링
+        setTitle(event.target.value);
+      })} /></p>
       <p><textarea name="body" placeholder='내용' value={body} onChange={(event => {
         setBody(event.target.value);
       })}></textarea></p>
@@ -97,10 +97,22 @@ function App() {
       }
     }
     content = <Article title={title} body={body}></Article>
-    contextControl = <li><a href={"/update/"+id} onClick={event => {
-      event.preventDefault();
-      setPage('UPDATE');
-    }}>update</a></li>
+    contextControl = <>
+      <li><a href={"/update/" + id} onClick={event => {
+        event.preventDefault();
+        setPage('UPDATE');
+      }}>update</a></li>
+      <li><input type='button' value='delete' onClick={(event => {
+        const newTopics = [] //빈배열을 만듬
+        for (let i = 0; i < topics.length; i++) {
+          if (topics[i].id !== id) { // '!==' 는 앞의 값과 뒤의 값이 다를때 {}안의 코드가 실행된다.
+            newTopics.push(topics[i]);
+          }
+        }
+        setTopics(newTopics);
+        setPage('WELCOME');
+      })}></input></li>
+    </>
   } else if (page === 'CREATE') {
     content = <Create onCreate={(titlex, bodyx) => {
       //어떻게 호출해야함?
@@ -121,11 +133,11 @@ function App() {
       }
     }
     content = <Update title={title} body={body} onUpdate={(title, body) => {
-      console.log(title,body);
+      console.log(title, body);
       const newTopics = [...topics]
-      const updatedTopic = {id:id, title:title, body:body}
-      for(let i=0; i<newTopics.length; i++){
-        if(newTopics[i].id === id){  //newTopic[i]번째 id랑 현재 id랑 일치한다면?
+      const updatedTopic = { id: id, title: title, body: body }
+      for (let i = 0; i < newTopics.length; i++) {
+        if (newTopics[i].id === id) {  //newTopic[i]번째 id랑 현재 id랑 일치한다면?
           newTopics[i] = updatedTopic; //newTopic[i]번째는 updatedtopic이 된다.
           break;
         }
