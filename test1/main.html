@@ -26,7 +26,13 @@
             while (i < state.contents.length) {
                 liTags = liTags + `
                 <li>
-                    <a href=""${state.contents[i].id}>${state.contents[i].title}</a>
+                    <a onclick="
+                        event.preventDefault();
+                        var action = {type:'SELECT', color:'black', id:${state.contents[i].id}}
+                        store.dispatch(action);
+                    " href=""${state.contents[i].id}>
+                        ${state.contents[i].title}
+                    </a>
                 </li>`;
                 i = i + 1;
             }
@@ -56,15 +62,24 @@
                 `
         }
         function reducer(state, action) {
+            
             if (state === undefined) {
                 return {
+                    selected_id:null,
                     contents: [
                         { id: 1, title: 'HTML', desc: 'HTML is...' },
                         { id: 2, title: 'CSS', desc: 'CSS is...' }
                     ] //reducer의 초기값으로 contents의 property가 있는 state값. 0,1 인덱스를 가지고 있는 각각의 개체를 담고있다.
                 }
             }
-            return
+            var newState;
+            if(action.type === 'SELECT'){
+                newState = Object.assign({}, state, {selected_id:action.id});
+
+            }
+            console.log(action, state, newState);
+            return newState;
+            
         }
         var store = Redux.createStore(reducer);
         //특정함수에 속해 있지 않는 상태로 변수를 선언 
