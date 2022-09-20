@@ -48,35 +48,67 @@
         function control() {
             document.querySelector('#control').innerHTML = `
                 <ul>
-                    <li><a href="/create">create</a></li>
+                    <li><a onclick = "
+                        event.preventDefault();
+
+                    " href="/create">create</a></li>
                     <li><input type="button" value="delete"></li>
                 </ul>
-                `
+                `;
         }
         function article() {
             var state = store.getState();
-            var i = 0 ;
-            var aTitle, aDesc;
-            while (i < state.contents.length){
-                if(state.contents[i].id === state.selected_id){
-                    aTitle = state.contents[i].title;
-                    aDesc = state.contents[i].desc;
-                    break;
+            if (state.mode === 'create') {
+                document.querySelector('#content').innerHTML = `
+                <article>
+                    <form onsubmit="
+                        event.preventDefault();
+                        var _title = this.title.value;
+                        var _desc = this.desc.value;
+                        store.dispatch({
+                            type:'CREATE',
+                            title:_title,
+                            desc:_desc
+                        })
+                    ">
+                        <p>
+                            <input type="text" name="title" placeholder="타이틀">
+                        </p>
+                        <p>
+                            <textarea name="desc" placeholder="본문"></textarea>
+                        </p>
+                        <p>
+                            <input type="submit">
+                        </P>
+                    </form>
+                </article>
+                `
+            } else if (state.mode === 'read') {
+                var i = 0;
+                var aTitle, aDesc;
+                while (i < state.contents.length) {
+                    if (state.contents[i].id === state.selected_id) {
+                        aTitle = state.contents[i].title;
+                        aDesc = state.contents[i].desc;
+                        break;
+                    }
+                    i = i + 1;
                 }
-                i = i + 1;
-            }
-            document.querySelector('#content').innerHTML = `
+                document.querySelector('#content').innerHTML = `
                 <article>
                     <h2>${aTitle}</h2>
                     ${aDesc}
                 </article>
                 `
+            }
+
         }
         function reducer(state, action) {
-            
             if (state === undefined) {
                 return {
-                    selected_id:1,
+                    max_id: 2,
+                    mode: 'create',
+                    selected_id: 2,
                     contents: [
                         { id: 1, title: 'HTML', desc: 'HTML is...' },
                         { id: 2, title: 'CSS', desc: 'CSS is...' }
@@ -84,19 +116,29 @@
                 }
             }
             var newState;
-            if(action.type === 'SELECT'){
-                newState = Object.assign({}, state, {selected_id:action.id});
+            if (action.type === 'SELECT') {
+                newState = Object.assign({}, state, { selected_id: action.id });
 
+            } else if (action.type === 'CREATE') {
+                var newMaxId = state.max_id + 1;
+                var newContents = state.contents.concat(); // concat();는 state.contents. 복제해서 추가해줌
+                newContents.push({ id: newMaxId, title: action.title, desc: action.desc });
+                newState = Object.assign({},state, {
+                    max_id:newMaxId,
+                    contents:newContents,
+                    mode:'read'
+                })
             }
             console.log(action, state, newState);
             return newState;
-            
+
         }
         var store = Redux.createStore(reducer);
         //특정함수에 속해 있지 않는 상태로 변수를 선언 
         //store 변수는 이 애플리케이션 전역에서 사용할 수 있게 된다.
-        store.subscribe(article); 
+        store.subscribe(article);
         //state값이 바뀔때 article함수를 실행하도록 해줌 subscribe 기능
+        store.subscribe(TOC);
         subject();
         TOC();
         control();
