@@ -27,9 +27,13 @@
             if (action.type === 'CHANGE_COLOR') {
                 newState = Object.assign({}, state, { color: action.color }) //action의 색으로
             }
+            console.log(action.type, action, state, newState);
             return newState;
         }
-        var store = Redux.createStore(reducer); ///store 전역 변수
+        var store = Redux.createStore( 
+            reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && 
+            window.__REDUX_DEVTOOLS_EXTENSION__()); 
+
         console.log(store.getState());
 
         function red() { //state값에 따라 바껴주므로 언제든지 호출가능
@@ -47,7 +51,7 @@
         store.subscribe(red); //state값이 바뀔때마다 red함수를 호출
         red();
 
-        function blue() { 
+        function blue() {
             var state = store.getState();
             document.querySelector('#blue').innerHTML = `
                 <div class="container" id="component_blue" style="background-color:${state.color}">
@@ -59,10 +63,10 @@
             
             `;
         }
-        store.subscribe(blue); 
+        store.subscribe(blue);
         blue();
 
-        function green() { 
+        function green() {
             var state = store.getState();
             document.querySelector('#green').innerHTML = `
                 <div class="container" id="component_green" style="background-color:${state.color}">
@@ -74,7 +78,7 @@
             
             `;
         }
-        store.subscribe(green); 
+        store.subscribe(green);
         green();
     </script>
 </body>
