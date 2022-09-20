@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <div id="subject"></div>
-        <div id="TOC"></div>
-        <div id="control"></div>
-        <div id="content"></div>
-        <script>
-            function subject(){
-                document.querySelector('#subject').innerHTML = `          
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js"></script>
+</head>
+
+<body>
+    <div id="subject"></div>
+    <div id="TOC"></div>
+    <div id="control"></div>
+    <div id="content"></div>
+    <script>
+        function subject() {
+            document.querySelector('#subject').innerHTML = `          
                 <header>
                     <h1>WEB</h1>
                     Hello, WEB!
                 </header>
                 `
+        }
+        function TOC() {
+            var state = store.getState();
+            var i = 0;
+            var liTags = '';
+            while (i < state.contents.length) {
+                liTags = liTags + `
+                <li>
+                    <a href=""${state.contents[i].id}>${state.contents[i].title}</a>
+                </li>`;
+                i = i + 1;
             }
-            function TOC(){
-                document.querySelector('#TOC').innerHTML = `
+            console.log(state);
+            document.querySelector('#TOC').innerHTML = `
                 <nav>
                     <ol>
-                        <li><a href="1.html">HTML</a></li>
-                        <li><a href="2.html">CSS</a></li>
+                      ${liTags}
                     </ol>
                 </nav>
                 `
-            }
-            function control(){
-                document.querySelector('#control').innerHTML = `
+        }
+        function control() {
+            document.querySelector('#control').innerHTML = `
                 <ul>
                     <li><a href="/create">create</a></li>
                     <li><input type="button" value="delete"></li>
                 </ul>
                 `
-            }
-            function article(){
-                document.querySelector('#content').innerHTML = `
+        }
+        function article() {
+            document.querySelector('#content').innerHTML = `
                 <article>
                     <h2>HTML</h2>
                     HTML is ...
                 </article>
                 `
+        }
+        function reducer(state, action) {
+            if (state === undefined) {
+                return {
+                    contents: [
+                        { id: 1, title: 'HTML', desc: 'HTML is...' },
+                        { id: 2, title: 'CSS', desc: 'CSS is...' }
+                    ] //reducer의 초기값으로 contents의 property가 있는 state값. 0,1 인덱스를 가지고 있는 각각의 개체를 담고있다.
+                }
             }
-            subject();
-            TOC();
-            control();
-            article();
-        </script>
-       
-        
-    </body>
+            return
+        }
+        var store = Redux.createStore(reducer);
+        //특정함수에 속해 있지 않는 상태로 변수를 선언 
+        //store 변수는 이 애플리케이션 전역에서 사용할 수 있게 된다.
+        subject();
+        TOC();
+        control();
+        article();
+    </script>
+
+
+</body>
+
 </html>
