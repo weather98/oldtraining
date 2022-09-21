@@ -7,7 +7,7 @@
 
 <body>
     <div id="subject"></div>
-    <div id="TOC"></div>
+    <div id="toc"></div>
     <div id="control"></div>
     <div id="content"></div>
     <script>
@@ -30,14 +30,14 @@
                         event.preventDefault();
                         var action = {type:'SELECT', color:'black', id:${state.contents[i].id}}
                         store.dispatch(action);
-                    " href=""${state.contents[i].id}>
+                    " href="${state.contents[i].id}">
                         ${state.contents[i].title}
                     </a>
                 </li>`;
                 i = i + 1;
             }
             console.log(state);
-            document.querySelector('#TOC').innerHTML = `
+            document.querySelector('#toc').innerHTML = `
                 <nav>
                     <ol>
                       ${liTags}
@@ -50,9 +50,17 @@
                 <ul>
                     <li><a onclick = "
                         event.preventDefault();
-
+                        store.dispatch({
+                            type:'CHANGE_MODE',
+                            mode:'create'
+                        })
                     " href="/create">create</a></li>
-                    <li><input type="button" value="delete"></li>
+                    <li><input onclick="
+                        store.dispatch({
+                            type:'DELETE',
+                        });
+
+                        "type="button" value="delete"></li>
                 </ul>
                 `;
         }
@@ -79,7 +87,7 @@
                         </p>
                         <p>
                             <input type="submit">
-                        </P>
+                        </p>
                     </form>
                 </article>
                 `
@@ -100,6 +108,14 @@
                     ${aDesc}
                 </article>
                 `
+            } else if(state.mode === 'welcome') {
+                document.querySelector('#content').innerHTML = `
+                <article>
+                    <h2>WELCOME</h2>
+                    Hello, Redux!!!
+                </article>
+                `
+
             }
 
         }
@@ -107,7 +123,7 @@
             if (state === undefined) {
                 return {
                     max_id: 2,
-                    mode: 'create',
+                    mode: 'welcome',
                     selected_id: 2,
                     contents: [
                         { id: 1, title: 'HTML', desc: 'HTML is...' },
@@ -117,7 +133,7 @@
             }
             var newState;
             if (action.type === 'SELECT') {
-                newState = Object.assign({}, state, { selected_id: action.id });
+                newState = Object.assign({}, state, { selected_id:action.id, mode:'read' });
 
             } else if (action.type === 'CREATE') {
                 var newMaxId = state.max_id + 1;
@@ -128,6 +144,26 @@
                     contents:newContents,
                     mode:'read'
                 })
+            } else if (action.type === 'DELETE') {
+                var newContents = [];
+                var i = 0;
+                while (i < state.contents.length) {
+                    if(state.selected_id !== state.contents[i].id){
+                        newContents.push(
+                            state.contents[i]
+                        );
+                        
+                    }
+                    i = i+1 ;
+                }
+                newState = Object.assign({},state, {
+                    contents:newContents,
+                    mode:'welcome'
+                })
+            } else if (action.type === 'CHANGE_MODE') {
+                newState = Object.assign({},state,{
+                    mode:action.mode
+                });
             }
             console.log(action, state, newState);
             return newState;
