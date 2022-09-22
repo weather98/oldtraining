@@ -5,11 +5,11 @@ import AddNumberRoot from './components/AddNumberRoot';
 import DisplayNumberRoot from './components/DisplayNumberRoot';
 
 function App() {
-  return (
+  return ( 
     <div className="App">
       <h1>Root</h1>
       <AddNumberRoot></AddNumberRoot>
-      <DisplayNumberRoot></DisplayNumberRoot>
+      <DisplayNumberRoot></DisplayNumberRoot> 1
     </div>
   );
 }
