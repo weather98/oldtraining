@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import store from '../store';
 export default class AddNumber extends Component {
     state = { size: 1 }
     render() {
@@ -7,7 +6,7 @@ export default class AddNumber extends Component {
             <div>
                 <h1>Add Number</h1>
                 <input type="button" value="+" onClick={function () {
-                    store.dispatch({ type: 'INCREMENT', size: this.state.size });
+                    this.props.onClick(this.state.size);
                 }.bind(this)}></input>
                 <input type="text" value={this.state.size} onChange={function (e) {
                     this.setState({ size: Number(e.target.value) });
@@ -15,5 +14,5 @@ export default class AddNumber extends Component {
             </div>
         )
     }
-}
+} //react 기능으로 부품으로써 가치있게 되돌림?
 

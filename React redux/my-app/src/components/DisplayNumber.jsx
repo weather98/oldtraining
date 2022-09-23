@@ -3,7 +3,7 @@ import store from "../store";
 export default class DisplayNumber extends Component {
   state = {number:store.getState().number}
   constructor(props){
-    super(props);
+    super(props);  /////////////////////////////// 어려움...
     store.subscribe(function(){
       this.setState({number:store.getState().number});
     }.bind(this));
