@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
@@ -11,6 +11,9 @@ function App() {
   );
 }
 
+var funcStyle = 'color:pink';
+var funcId = 0;
+
 function FuncComp(프롭) {
   var numberState = useState(프롭.initNumber);
   var number = numberState[0];
@@ -22,9 +25,32 @@ function FuncComp(프롭) {
 
   var [날짜, setDate] = useState((new Date()).toString());
 
-
+  useEffect(function(){
+    console.log('%cfunc => useEffect (componentDidMount)'+(++funcId),funcStyle);
+    document.title = number;
+    return function(){
+      console.log('%cfunc => useEffect return(componentWillUnmount)'+(++funcId),funcStyle);
+    }
+  },[]); // useEffect 함수의 두번째 인자 빈대괄호[]를 설정하면 최초로 처음 1회만 실행하도록함
   
-  console.log('numberState',numberState);
+  //side effect : 부작용 부가적인 작용
+  useEffect(function(){
+    console.log('%cfunc => useEffect 랜덤(componentDidMount & componentDidUpdate)'+(++funcId),funcStyle);
+    document.title = number;
+    return function(){
+      console.log('%cfunc => useEffect 랜덤 return(componentWillUnmount)'+(++funcId),funcStyle);
+    }
+  },[number]); //useEffect 함수의 두번째 인자[number]를 설정했을때 [number]가바꼇을떄만 실행하도록함
+
+  useEffect(function(){
+    console.log('%cfunc => useEffect 날짜(componentDidMount & componentDidUpdate)'+(++funcId),funcStyle);
+    document.title = 날짜;
+    return function(){
+      console.log('%cfunc => useEffect 날짜 return(componentWillUnmount)'+(++funcId),funcStyle);
+    }
+  },[날짜]); // 여기서는 [날짜]
+  
+  console.log('%cfunc => render'+(++funcId),funcStyle);
   return (
     <div className="container">
       <h2>function style Component</h2>
@@ -43,6 +69,8 @@ function FuncComp(프롭) {
     </div>
   );
 }
+
+
 var classStyle = 'color:red';
 class ClassComp extends React.Component {
   state = {
