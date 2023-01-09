@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(110, 98, 163);
+    background-color: transparent;
+}
+h1,
+.subtitle {
+    margin: 0;
+    text-align: center;
+}
+
+
+hgroup {
+    border-bottom: 45px solid #818181;
+    margin: 0;
+    text-align: center;
+}
+
+h1 img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ol {
+    border-right: 1px solid #bbbbbb;
+    width: 150px;
+    margin: 0;
+    padding-top: 20px;
+}
+
+h3 {
+    text-align: center;
+    font-family: Impact;
+}
+
+/* manu {
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+#left {
+    text-align: left;
+}
+
+#center {
+    text-align: center;
+}
+
+#right {
+    text-align: right;
+}
+
+#hello {
+    width: 400px;
+    height: 50px;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Side_banner {
+    overflow: hidden;
+    float: right;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#grid {
+    display: grid;
+    grid-template-columns: 200px 650px;
+    border-left: 1px solid #bbbbbb;
+    justify-content: center;
+}
+
+#article {
+    display: inline;
+
+}
+
+/* 
+퍼옴 w3c에서
+ */
+.w3-example p,
+.w3-info p,
+.w3-note p,
+.w3-warning p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.w3-example a:focus,
+.nextprev a:focus {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.w3-example .w3-btn,
+.w3-example .ws-btn {
+    background-color: #76ffcd !important;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 6px 18px;
+}
+
+.w3-example {
+    background-color: #858585;
+    border-radius: 5px;
+    padding: 0.01em 16px;
+    margin: 20px 0;
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16),
+        0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
+}
+
+.w3-example a:focus,
+.nextprev a:focus {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.darktheme .w3-example.w3-light-grey {
+    background-color: rgb(40, 44, 52) !important;
+    color: white;
+}
+
+.darktheme .w3-example pre {
+    background-color: rgb(40, 44, 52) !important;
+    border-left-color: rgb(40, 44, 52)
+}
+
+body.darkpagetheme .w3-example {
+    background-color: #38444d;
+}
+
+.w3-code,
+.w3-codespan {
+    font-family: Consolas, Menlo, "courier new", monospace;
+    font-size: 16px
+}
+
+.w3-code {
+    width: auto;
+    background-color: #fff;
+    color: #000;
+    padding: 8px 12px;
+    border-left: 4px solid #80ff80;
+    word-wrap: break-word
+}
+
+
+.w3-section,
+.w3-code {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important
+}
+
+.w3-code {
+    border-left: 4px solid #e2ff3b;
+}
+
+.w3-code,w3-codeline{
+    font-size:15px;
+  }
+
+
+/*
+    화면 넓이에 따라 속성조절! 
+    반응형 웹! 미디어쿼리
+    */
+@media screen and (max-width:600px) {
+
+    #grid,
+    #grid2 {
+        display: block;
+    }
+
+    #grid ol {
+        border-right: none;
+        width: auto;
+        margin: 0;
+        padding-top: 20px;
+        padding-left: 33px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #818181;
+    }
+
+    #contents {
+        width:auto;
+        padding: 1.5rem;
+    
+    }
+
+    .w3-example,
+    #w3-exerciseform {
+        margin-left: -32px;
+        margin-right: -32px;
+        border-radius: 0
+    }
+
+    h1 {
+        border-bottom: none;
+        margin: 0;
+    }
+
+    .w3-example {
+        padding: 8px 16px;
+        margin: 24px -16px;
+    }
+
+
+    .w3-example,
+    .w3-note,
+    #w3-exerciseform {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+    iframe {
+        width:460px;
+        height:260px;
+    }
+}
+
+
+
+
+.jscolor {
+    color: black
+}
+
+.jskeywordcolor {
+    color: mediumblue
+}
+
+.jsstringcolor {
+    color: brown
+}
+
+.jsnumbercolor {
+    color: red
+}
+
+.jspropertycolor {
+    color: black
+}
+
+.javacolor {
+    color: black
+}
+
+.javakeywordcolor {
+    color: mediumblue
+}
+
+.javastringcolor {
+    color: brown
+}
+
+.javanumbercolor {
+    color: red
+}
+
+.javapropertycolor {
+    color: black
+}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<head>
+  <!본문을 설명하는 정보>
+    <title>WEB1 - JavaScript</title>
+    <meta charset="utf-8">
+    <p>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-D5C8R737B6"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-D5C8R737B6');
+
+
+      </script>
+      <!--jQuery (google CDN)-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+      
+      <script src="colors.js"></script>
+    </p>
+    <link rel="stylesheet" href="style2.css">
+
+  </head>
+
+  <body>
+  <!본문을 표기>
+    <div class="head">
+      <header>
+        <hgroup>
+          <h1 class="title" ALIGN="CENTER">
+            <a href="index.html">코길순딩</a>
+          </h1>
+
+          <p class="subtitle" ALIGN="CENTER">
+            <small>coriny webpage</small>
+          </p>
+          <p>
+            <!--
+    if() else() 조건문 + value 값설정, id설정으로 분류 및 지정
+  if(document.querySelector('#본인id').~ = if(this.~) 
+  위에서 this는 본인
+  target은 대상 이므로 중복되는 코드를 변경,대체 가능
+  var target = document.querySelector('body') 를 선언해줌으로써
+  현재는 var 보다 let const 를 선호?
+  let 은 변수에 재 할당이 가능하다.
+  const는 변수 재선언,변수 재할당 모두 불가능하다.
+  
+  1) var : 재선언 O, 재할당 O
+  2) let : 재선언X, 재할당 O
+  3) const : 재선언X, 재할당 X
+-->
+            <input type="button" value="night" onclick="
+            nightdayHandler(this);
+            "> <!-- 이벤트 input 함수이용-->
+
+
+          </p>
+        </hgroup>
+      </header>
+    </div>
+    <div id="grid">
+      <ol>
+        <!--ordered list-->
+        <li><a href="1.html">그림판그리기</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">Javascript</a></li>
+        <li><a href="4.html">News</a></li>
+        <a href="5.html">Animate Toggle Button</a>
+      </ol>
+      <!--    
+    <h1><a href="index.html"><font color="red">WEB</font></a></h1>
+    <ol>
+      <!ordered list>
+        <li><a href="1.html"><font color="red">Html</font></a></li>
+        <li><a href="2.html"><font color="red">CSS</font></a></li>
+        <li><a href="3.html"><font color="red">Javascript</font></a></li>
+    </ol>
+    -->
+
+      <div id="article">
+        <div id="contents">
+          <h2>JavaScript란?</h2>
+          <p>JavaScript는 웹페이지를 동적으로, 프로그래밍적으로 제어하기 위해서 고안된 언어다. 그렇기 때문에 오늘날 가장 중요한 플랫폼이라고 할 수 있는 웹브라우저에서 유일하게 사용할 수 있는
+            프로그래밍
+            언어이다. 최근에는 HTML5의 적용이 가속화되면서 지금까지 모바일 환경에서 네이티브 앱(안드로이드, IOS)으로 구현해왔던 기능이 웹에서도 대부분 구현할 수 있게 되고 있다. 웹이
+            크로스플랫폼이라는 점,
+            검색 가능하다는 점, 네이티브 디바이스를 제어할 수 있는 하드브리드 시스템(phonegap 등)이 존재한다는 점에서 웹의 중요함은 더욱 확대될 전망이다. 자연스럽게 웹에서 구동되는 유일한 언어인
+            JavaScript의 중요함도 점점 커질 것으로 예상된다.</p>
+
+          <p><a href="#goal">자바스크립트로 할 수 있는 일</a>을 참고하면 알 수 있지만, 최근에는 자바스크립트가 웹을 벗어나서 광범위하게 사용되고 있다. 그 효용이 다각적이면서도 배우기
+            쉬운
+            점
+            때문에 자바스크립트는 중급 개발자나 프로그래밍 입문자 모두가 도전해볼만한 언어다.</p>
+        </div>
+        <div class="w3-example">
+          <h2>
+            <span style="font-family:Verdana, Geneva, Tahoma, sans-serif">Example</span>
+          </h2>
+          <div class="w3-code notranslate jsHigh">
+            <span class="jscolor" style="color:black">
+              <span class="jskeywordcolor" style="color:mediumblue">for</span> (<span class="jskeywordcolor"
+                style="color:mediumblue">let</span> i = <span class="jsnumbercolor" style="color:red">0</span>; i &lt;
+              <span class="jsnumbercolor" style="color:red">10</span>; i++) {<br><span class="jsnumbercolor"
+                style="color:red">
+              </span> &nbsp; <span class="jskeywordcolor" style="color:mediumblue">if</span> (i === <span
+                class="jsnumbercolor" style="color:red">3</span>) { <span class="jskeywordcolor"
+                style="color:mediumblue">continue</span>; }<br><span class="jsnumbercolor" style="color:red">
+              </span> &nbsp; text += <span class="jsstringcolor" style="color:brown">"The number is "</span> + i + <span
+                class="jsstringcolor" style="color:brown">"&lt;br&gt;"</span>;<br><span class="jsnumbercolor"
+                style="color:red">
+              </span>}<span class="jsnumbercolor" style="color:red">
+              </span> </span>
+
+          </div>
+          <a class="w3-btn w3-margin-bottom" href="https://www.w3schools.com/js/js_arrays.asp" target="_blank"><span style="color:black">출처»</span></a>
+        </div>
+      </div>
+
+</body>
+
+</html>
