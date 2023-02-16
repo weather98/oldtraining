@@ -6,3 +6,6 @@ react
 reactredux  
 ajax  
 이전 repository를 모아두었음.
+
+***
+임시바코드이미지  ![1](https://user-images.githubusercontent.com/112868136/219225438-356b88e6-1b34-4b6a-944c-b9ad5391ae36.png)  
